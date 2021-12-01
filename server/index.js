@@ -1,3 +1,4 @@
+import dotenv  from 'dotenv';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -7,6 +8,8 @@ import { schema, root } from './graphql/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 
