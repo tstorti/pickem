@@ -17,15 +17,15 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 //add graphql endpoint
 app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
+	schema: schema,
+	rootValue: root,
+	graphiql: true,
 }));
 
 app.get('/health', (req, res) => {
-  res.json({ message: 'Hello from server!' });
+	res.json({ message: 'Hello from server!' });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+	console.log(`Server listening on ${PORT}`);
 });

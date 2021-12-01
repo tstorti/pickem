@@ -9,7 +9,7 @@ export const schema = buildSchema(`
 
 //resolver function
 export const root = {
-  hello: () => {
-    return 'Hello world!';
-  },
+	hello: () => {
+		return 'Hello world!';
+	},
 };
