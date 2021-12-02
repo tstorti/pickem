@@ -1,15 +1,16 @@
-import { buildSchema } from 'graphql';
+import { makeExecutableSchema } from '@graphql-tools/schema';
+import merge from 'lodash.merge';
 
-//construct basic schema
-export const schema = buildSchema(`
+import { typeDefs as UsersTypeDefs, resolvers as usersResolvers } from './users/index.js';
+import { typeDefs as GamesTypeDefs, resolvers as gamesResolvers } from './games/index.js';
+
+const Query = `
   type Query {
-    hello: String
+    _empty: String
   }
-`);
+`;
 
-//resolver function
-export const root = {
-	hello: () => {
-		return 'Hello world!';
-	},
-};
+export const schema = makeExecutableSchema({
+	typeDefs: [ Query, UsersTypeDefs, GamesTypeDefs ],
+	resolvers: merge(gamesResolvers, usersResolvers),
+});

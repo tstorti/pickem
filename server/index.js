@@ -4,7 +4,7 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
-import { schema, root } from './graphql/index.js';
+import { schema } from './graphql/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,8 +20,7 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 //add graphql endpoint
 app.use('/graphql', graphqlHTTP({
-	schema: schema,
-	rootValue: root,
+	schema,
 	graphiql: true,
 }));
 
