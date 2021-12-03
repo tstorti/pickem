@@ -24,7 +24,7 @@ export const resolvers = {
 		date: obj => obj.date,
 	},
 	Query: {
-		games: (root, args, context) => {
+		games: () => {
 			//TODO - connect with DB
 			return stubGames;
 		},	

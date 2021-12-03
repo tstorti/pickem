@@ -22,7 +22,7 @@ export const resolvers = {
 		lastName: obj => obj.lastName,
 	},
 	Query: {
-		users: (root, args, context) => {
+		users: () => {
 			//TODO - connect with DB
 			return Promise.resolve(stubUsers);
 		},
